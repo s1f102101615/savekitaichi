@@ -1,0 +1,117 @@
+# パチンコ・スロット収支管理アプリ
+
+パチンコ・スロットの収支を管理するためのウェブアプリケーションです。従業員ごと、機種ごとの収支管理や統計情報の可視化が可能です。
+
+## 機能
+
+- セッション（遊技記録）の登録・編集・削除
+- 総収支、勝率、平均投資額などの統計情報表示
+- 従業員別の収支分析
+- 機種別の収支分析
+- 日次収支グラフ（棒グラフ・折れ線グラフ）
+- 月別収支の集計
+
+## 技術スタック
+
+- **フロントエンド**: Next.js, React, TypeScript, Tailwind CSS, shadcn/ui
+- **バックエンド**: Next.js API Routes (モックAPI)
+- **グラフ**: Recharts
+
+## インストール方法
+
+### 前提条件
+
+- Node.js 18.0.0以上
+- npm または yarn
+
+### セットアップ手順
+
+1. リポジトリをクローンする
+
+\`\`\`bash
+git clone https://github.com/yourusername/pachinko-tracker.git
+cd pachinko-tracker
+\`\`\`
+
+2. 依存パッケージをインストールする
+
+\`\`\`bash
+npm install
+# または
+yarn install
+\`\`\`
+
+## 起動方法
+
+開発サーバーを起動する:
+
+\`\`\`bash
+npm run dev
+# または
+yarn dev
+\`\`\`
+
+ブラウザで [http://localhost:3000](http://localhost:3000) を開くとアプリケーションにアクセスできます。
+
+## ビルドと本番環境での実行
+
+本番用にビルドする:
+
+\`\`\`bash
+npm run build
+# または
+yarn build
+\`\`\`
+
+ビルドしたアプリケーションを実行する:
+
+\`\`\`bash
+npm run start
+# または
+yarn start
+\`\`\`
+
+## プロジェクト構造
+
+\`\`\`
+pachinko-tracker/
+├── app/                  # Next.js App Router
+│   ├── api/              # API Routes
+│   │   └── mock/         # モックAPI
+│   └── page.tsx          # メインページ
+├── components/           # Reactコンポーネント
+│   ├── daily-profit-chart.tsx
+│   ├── machine-stats.tsx
+│   ├── player-stats.tsx
+│   ├── session-form.tsx
+│   ├── sessions-table.tsx
+│   └── stats-overview.tsx
+├── services/             # APIサービス
+│   └── api.ts
+├── types/                # 型定義
+│   └── session.ts
+└── middleware.ts         # Next.js ミドルウェア
+\`\`\`
+
+## モックAPI
+
+このプロジェクトは開発用のモックAPIを使用しています。実際の開発では、バックエンドAPIに置き換えてください。
+
+### APIエンドポイント
+
+- `GET /api/employees` - 従業員一覧を取得
+- `GET /api/machines` - 機種一覧を取得
+- `GET /api/sessions` - セッション一覧を取得
+- `POST /api/sessions` - 新規セッションを作成
+- `PUT /api/sessions/:id` - セッションを更新
+- `DELETE /api/sessions/:id` - セッションを削除
+- `GET /api/stats/daily` - 日次収支データを取得
+
+## 注意事項
+
+- このアプリケーションはデモ用であり、実際の運用には適切なバックエンドとデータベースの実装が必要です。
+- モックAPIはサーバーを再起動すると初期状態に戻ります（データは永続化されません）。
+
+## ライセンス
+
+MIT
